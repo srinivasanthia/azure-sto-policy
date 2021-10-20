@@ -1,0 +1,35 @@
+{
+ "properties": {
+  "displayName": "Restrict storage account firewall rules",
+  "policyType": "Custom",
+  "mode": "All",
+  "metadata": {
+   "category": "Storage",
+   "createdBy": "54a83bb8-82fe-49ee-a881-92622d5fd220",
+   "createdOn": "2021-10-06T18:22:13.9511946Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Storage/storageAccounts"
+     },
+     {
+      "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
+      "notequals": "Deny"
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/subscriptions/5589545b-29e8-4453-9abe-38e8c1cd2e88/providers/Microsoft.Authorization/policyDefinitions/ed61fc43-b37b-4dfd-b690-8a646d4ea97f",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "ed61fc43-b37b-4dfd-b690-8a646d4ea97f"
+}
